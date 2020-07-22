@@ -5,7 +5,7 @@ class Register extends Component {
         super(props);
         this.state = {
             registrationName: '',
-            registrationEmail: '',
+            registrationPseudo: '',
             registrationPassword: ''
         };
     }
@@ -14,8 +14,8 @@ class Register extends Component {
         this.setState({ registrationName: event.target.value });
     };
 
-    onEmailChange = event => {
-        this.setState({ registrationEmail: event.target.value });
+    onPseudoChange = event => {
+        this.setState({ registrationPseudo: event.target.value });
     };
 
     onPasswordChange = event => {
@@ -23,12 +23,12 @@ class Register extends Component {
     };
 
     onSubmitRegister = () => {
-        fetch('https://mariheck-smartbrain-api.herokuapp.com/register', {
+        fetch('http://localhost:3000/register', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
                 name: this.state.registrationName,
-                email: this.state.registrationEmail,
+                pseudo: this.state.registrationPseudo,
                 password: this.state.registrationPassword
             })
         })
@@ -56,7 +56,7 @@ class Register extends Component {
                                     className="db fw6 lh-copy f6"
                                     htmlFor="name"
                                 >
-                                    Name
+                                    First Name
                                 </label>
                                 <input
                                     className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100"
@@ -69,16 +69,16 @@ class Register extends Component {
                             <div className="mt3">
                                 <label
                                     className="db fw6 lh-copy f6"
-                                    htmlFor="email-address"
+                                    htmlFor="pseudo"
                                 >
-                                    Email
+                                    Pseudo
                                 </label>
                                 <input
                                     className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100"
-                                    type="email"
-                                    name="email-address"
-                                    id="email-address"
-                                    onChange={this.onEmailChange}
+                                    type="text"
+                                    name="pseudo"
+                                    id="pseudo"
+                                    onChange={this.onPseudoChange}
                                 />
                             </div>
                             <div className="mv3">

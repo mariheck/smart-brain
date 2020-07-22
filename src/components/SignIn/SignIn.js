@@ -4,12 +4,12 @@ class SignIn extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            signInEmail: '',
+            signInPseudo: '',
             signInPassword: ''
         };
     }
-    onEmailChange = event => {
-        this.setState({ signInEmail: event.target.value });
+    onPseudoChange = event => {
+        this.setState({ signInPseudo: event.target.value });
     };
 
     onPasswordChange = event => {
@@ -17,11 +17,11 @@ class SignIn extends Component {
     };
 
     onSubmitSignIn = () => {
-        fetch('https://mariheck-smartbrain-api.herokuapp.com/signin', {
+        fetch('http://localhost:3000/signin', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
-                email: this.state.signInEmail,
+                pseudo: this.state.signInPseudo,
                 password: this.state.signInPassword
             })
         })
@@ -47,16 +47,16 @@ class SignIn extends Component {
                             <div className="mt3">
                                 <label
                                     className="db fw6 lh-copy f6"
-                                    htmlFor="email-address"
+                                    htmlFor="pseudo"
                                 >
-                                    Email
+                                    Pseudo
                                 </label>
                                 <input
                                     className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100"
-                                    type="email"
-                                    name="email-address"
-                                    id="email-address"
-                                    onChange={this.onEmailChange}
+                                    type="text"
+                                    name="pseudo"
+                                    id="pseudo"
+                                    onChange={this.onPseudoChange}
                                 />
                             </div>
                             <div className="mv3">

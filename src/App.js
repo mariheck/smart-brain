@@ -31,7 +31,7 @@ const initialState = {
     user: {
         id: '',
         name: '',
-        email: '',
+        pseudo: '',
         entries: 0,
         joined: ''
     }
@@ -48,7 +48,7 @@ class App extends Component {
             user: {
                 id: data.id,
                 name: data.name,
-                email: data.email,
+                pseudo: data.pseudo,
                 entries: data.entries,
                 joined: data.joined
             }
@@ -88,7 +88,7 @@ class App extends Component {
 
     onPictureSubmit = () => {
         this.setState({ imageUrl: this.state.input });
-        fetch('https://mariheck-smartbrain-api.herokuapp.com/imageurl', {
+        fetch('http://localhost:3000/imageurl', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
@@ -98,16 +98,13 @@ class App extends Component {
             .then(response => response.json())
             .then(response => {
                 if (response) {
-                    fetch(
-                        'https://mariheck-smartbrain-api.herokuapp.com/image',
-                        {
-                            method: 'PUT',
-                            headers: { 'Content-Type': 'application/json' },
-                            body: JSON.stringify({
-                                id: this.state.user.id
-                            })
-                        }
-                    )
+                    fetch('http://localhost:3000/image', {
+                        method: 'PUT',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            id: this.state.user.id
+                        })
+                    })
                         .then(response => response.json())
                         .then(count => {
                             this.setState({
@@ -131,9 +128,9 @@ class App extends Component {
                     isSignedIn={isSignedIn}
                     onRouteChange={this.onRouteChange}
                 />
-                <Logo />
                 {route === 'home' ? (
                     <main>
+                        <Logo />
                         <Rank
                             name={this.state.user.name}
                             entries={this.state.user.entries}
