@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 import Particles from 'react-particles-js';
-
-import Navigation from './components/Navigation/Navigation';
-import Logo from './components/Logo/Logo';
-import SignIn from './components/SignIn/SignIn';
-import Register from './components/Register/Register';
-import Rank from './components/Rank/Rank';
-import ImageLinkForm from './components/ImageLinkForm/ImageLinkForm';
-import FaceRecognition from './components/FaceRecognition/FaceRecognition';
+import Navigation from './components/navigation/navigation.component';
+import Logo from './components/logo/logo.component';
+import SignIn from './components/sign-in/sign-in.component';
+import Register from './components/register/register.component';
+import Rank from './components/rank/rank.component';
+import ImageLinkForm from './components/image-link-form/image-link-form.component';
+import FaceRecognition from './components/face-recognition/face-recognition.component';
 import './App.css';
 
 const particlesOptions = {
@@ -23,7 +22,7 @@ const particlesOptions = {
 };
 
 const initialState = {
-    route: 'signin',
+    route: 'home',
     isSignedIn: false,
     input: '',
     imageUrl: '',

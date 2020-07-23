@@ -1,0 +1,11 @@
+.rank {
+    color: #fff;
+}
+
+.rank .title {
+    font-size: 1.5rem;
+}
+
+.rank .entries {
+    font-size: 3rem;
+}

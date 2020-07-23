@@ -1,0 +1,46 @@
+.image-link-form p {
+    font-size: 1.5rem;
+}
+
+.image-link-form-box {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+}
+
+.form {
+    width: 700px;
+    background-color: #fb1;
+    font-size: 1.25rem;
+    background-size: 40px 60px;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.form-input {
+    padding: 0.5rem;
+    width: 70%;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    border: none;
+    outline: none;
+}
+
+.form-button {
+    color: #fff;
+    background-color: #ff5edf;
+    width: 30%;
+    padding: 0.5rem 1rem;
+    border: none;
+    outline: none;
+    transition: all 0.2s ease-in;
+}
+
+.form-button:hover {
+    background-color: #04c8de;
+}
