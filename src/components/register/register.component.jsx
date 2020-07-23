@@ -2,25 +2,15 @@ import React, { Component } from 'react';
 import '../sign-in/sign-in.styles.css';
 
 class Register extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            registrationName: '',
-            registrationPseudo: '',
-            registrationPassword: ''
-        };
-    }
-
-    onNameChange = event => {
-        this.setState({ registrationName: event.target.value });
+    state = {
+        registrationName: '',
+        registrationPseudo: '',
+        registrationPassword: ''
     };
 
-    onPseudoChange = event => {
-        this.setState({ registrationPseudo: event.target.value });
-    };
-
-    onPasswordChange = event => {
-        this.setState({ registrationPassword: event.target.value });
+    onInputChange = event => {
+        const { value, name } = event.target;
+        this.setState({ ...this.state, [name]: value });
     };
 
     onSubmitRegister = () => {
@@ -37,6 +27,7 @@ class Register extends Component {
             .then(user => {
                 if (user.id) {
                     this.props.loadUser(user);
+                    this.props.onSignIn();
                     this.props.onRouteChange('home');
                 }
             });
@@ -50,27 +41,27 @@ class Register extends Component {
                     <label htmlFor="name">First Name</label>
                     <input
                         type="text"
-                        name="name"
+                        name="registrationName"
                         id="name"
-                        onChange={this.onNameChange}
+                        onChange={this.onInputChange}
                     />
                 </div>
                 <div>
                     <label htmlFor="pseudo">Pseudo</label>
                     <input
                         type="text"
-                        name="pseudo"
+                        name="registrationPseudo"
                         id="pseudo"
-                        onChange={this.onPseudoChange}
+                        onChange={this.onInputChange}
                     />
                 </div>
                 <div>
                     <label htmlFor="password">Password</label>
                     <input
                         type="password"
-                        name="password"
+                        name="registrationPassword"
                         id="password"
-                        onChange={this.onPasswordChange}
+                        onChange={this.onInputChange}
                     />
                 </div>
                 <div>

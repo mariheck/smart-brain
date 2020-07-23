@@ -22,7 +22,7 @@ const particlesOptions = {
 };
 
 const initialState = {
-    route: 'home',
+    route: 'signin',
     isSignedIn: false,
     input: '',
     imageUrl: '',
@@ -37,10 +37,7 @@ const initialState = {
 };
 
 class App extends Component {
-    constructor() {
-        super();
-        this.state = initialState;
-    }
+    state = initialState;
 
     loadUser = data => {
         this.setState({
@@ -54,12 +51,14 @@ class App extends Component {
         });
     };
 
+    onSignIn = () => {
+        this.setState({ isSignedIn: true });
+    };
+
     onRouteChange = route => {
         this.setState({ route: route });
         if (route === 'signout') {
             this.setState(initialState);
-        } else if (route === 'home') {
-            this.setState({ isSignedIn: true });
         }
     };
 
@@ -96,7 +95,7 @@ class App extends Component {
         })
             .then(response => response.json())
             .then(response => {
-                if (response) {
+                if (this.state.isSignedIn && response) {
                     fetch('http://localhost:3000/image', {
                         method: 'PUT',
                         headers: { 'Content-Type': 'application/json' },
@@ -121,18 +120,20 @@ class App extends Component {
         const { isSignedIn, route, imageUrl, box } = this.state;
 
         return (
-            <div className="App">
+            <div className="app">
                 <Particles className="particles" params={particlesOptions} />
                 <Navigation
                     isSignedIn={isSignedIn}
                     onRouteChange={this.onRouteChange}
                 />
+
                 {route === 'home' ? (
                     <main>
                         <Logo />
                         <Rank
                             name={this.state.user.name}
                             entries={this.state.user.entries}
+                            isSignedIn={isSignedIn}
                         />
                         <ImageLinkForm
                             onInputChange={this.onInputChange}
@@ -144,11 +145,13 @@ class App extends Component {
                     <SignIn
                         onRouteChange={this.onRouteChange}
                         loadUser={this.loadUser}
+                        onSignIn={this.onSignIn}
                     />
                 ) : (
                     <Register
                         onRouteChange={this.onRouteChange}
                         loadUser={this.loadUser}
+                        onSignIn={this.onSignIn}
                     />
                 )}
             </div>

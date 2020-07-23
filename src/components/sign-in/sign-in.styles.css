@@ -21,6 +21,7 @@
 
 .sign-in div {
     margin: 0.75rem auto;
+    width: 100%;
 }
 
 .sign-in label {
@@ -46,6 +47,24 @@
     background-color: rgba(0, 0, 0, 0.8);
     color: #fff;
     outline: none;
+}
+
+.sign-in button {
+    width: auto;
+}
+
+.sign-in .links {
+    font-size: 0.75rem;
+    margin-top: 1rem;
+    margin-bottom: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.sign-in .links p {
+    margin: 0;
+    margin-top: 1rem;
+    cursor: pointer;
 }
 
 @media screen and (max-width: 1000px) {

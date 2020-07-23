@@ -2,19 +2,14 @@ import React, { Component } from 'react';
 import './sign-in.styles.css';
 
 class SignIn extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            signInPseudo: '',
-            signInPassword: ''
-        };
-    }
-    onPseudoChange = event => {
-        this.setState({ signInPseudo: event.target.value });
+    state = {
+        signInPseudo: '',
+        signInPassword: ''
     };
 
-    onPasswordChange = event => {
-        this.setState({ signInPassword: event.target.value });
+    onInputChange = event => {
+        const { value, name } = event.target;
+        this.setState({ ...this.state, [name]: value });
     };
 
     onSubmitSignIn = () => {
@@ -30,6 +25,7 @@ class SignIn extends Component {
             .then(user => {
                 if (user.id) {
                     this.props.loadUser(user);
+                    this.props.onSignIn();
                     this.props.onRouteChange('home');
                 }
             });
@@ -43,24 +39,32 @@ class SignIn extends Component {
                     <label htmlFor="pseudo">Pseudo</label>
                     <input
                         type="text"
-                        name="pseudo"
+                        name="signInPseudo"
                         id="pseudo"
-                        onChange={this.onPseudoChange}
+                        onChange={this.onInputChange}
                     />
                 </div>
                 <div>
                     <label htmlFor="password">Password</label>
                     <input
                         type="password"
-                        name="password"
+                        name="signInPassword"
                         id="password"
-                        onChange={this.onPasswordChange}
+                        onChange={this.onInputChange}
                     />
                 </div>
                 <div>
                     <button type="submit" onClick={this.onSubmitSignIn}>
                         Sign In
                     </button>
+                    <div className="links">
+                        <p onClick={() => this.props.onRouteChange('register')}>
+                            Register
+                        </p>
+                        <p onClick={() => this.props.onRouteChange('home')}>
+                            Enter as visitor
+                        </p>
+                    </div>
                 </div>
             </div>
         );
