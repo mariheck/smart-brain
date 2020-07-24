@@ -16,7 +16,7 @@
     display: flex;
     justify-content: center;
     margin: 0 auto;
-    padding: 2rem;
+    padding: 30px;
     border-radius: 0.5rem;
     box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
@@ -29,13 +29,17 @@
     margin: 0 auto;
     border: none;
     outline: none;
+    font-size: 1.25rem;
+    font-family: inherit;
 }
 
 .form-button {
     color: #fff;
+    font-size: 1.25rem;
+    font-family: inherit;
     background-color: #ff5edf;
     width: 30%;
-    padding: 0.5rem 1rem;
+    padding: 7px 15px;
     border: none;
     outline: none;
     transition: all 0.2s ease-in;
@@ -43,4 +47,10 @@
 
 .form-button:hover {
     background-color: #04c8de;
+}
+
+@media screen and (max-width: 800px) {
+    .image-link-form p {
+        font-size: 1.25rem;
+    }
 }

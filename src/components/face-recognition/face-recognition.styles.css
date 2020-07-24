@@ -1,11 +1,16 @@
 .face-recognition {
-    margin: 2rem auto;
+    margin: 30px auto;
     display: flex;
     justify-content: center;
 }
 
 .image-container {
     position: absolute;
+}
+
+.image-container img {
+    width: 500px;
+    height: auto;
 }
 
 .bounding-box {
@@ -18,4 +23,10 @@
     -ms-flex-pack: center;
     justify-content: center;
     cursor: pointer;
+}
+
+@media screen and (max-width: 560px) {
+    .image-container img {
+        width: 90vw;
+    }
 }

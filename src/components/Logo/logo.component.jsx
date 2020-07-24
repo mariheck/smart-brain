@@ -5,11 +5,7 @@ import './logo.styles.css';
 
 const Logo = () => (
     <div className="logo">
-        <Tilt
-            className="tilt"
-            options={{ max: 55 }}
-            style={{ height: 150, width: 150 }}
-        >
+        <Tilt className="tilt" options={{ max: 55 }}>
             <img src={brain} alt="logo" />
         </Tilt>
     </div>

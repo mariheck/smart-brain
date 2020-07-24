@@ -1,17 +1,17 @@
 .logo {
-    margin: 2rem;
     position: absolute;
-    top: 0;
+    top: 30px;
 }
 
 .tilt {
+    height: 100px;
+    width: 100px;
     background: linear-gradient(89deg, #ff5edf 0%, #04c8de 100%);
-    padding: 1rem;
+    padding: 25px;
     border-radius: 0.25rem;
     box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.2);
 }
 
 .tilt img {
-    padding: 10px;
-    height: 75%;
+    height: 100px;
 }
