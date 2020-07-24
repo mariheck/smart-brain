@@ -4,9 +4,13 @@
     justify-content: center;
 }
 
+.image-container {
+    position: absolute;
+}
+
 .bounding-box {
     position: absolute;
-    box-shadow: 0 0 0 3px #a463f2 inset;
+    box-shadow: 0 0 0 3px #ff5edf inset;
     display: -ms-flexbox;
     display: flex;
     -ms-flex-wrap: wrap;

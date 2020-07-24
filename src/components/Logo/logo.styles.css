@@ -1,6 +1,7 @@
 .logo {
     margin: 2rem;
-    margin-top: 0;
+    position: absolute;
+    top: 0;
 }
 
 .tilt {

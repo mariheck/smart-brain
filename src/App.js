@@ -22,7 +22,7 @@ const particlesOptions = {
 };
 
 const initialState = {
-    route: 'signin',
+    route: 'home',
     isSignedIn: false,
     input: '',
     imageUrl: '',
@@ -117,7 +117,13 @@ class App extends Component {
     };
 
     render() {
-        const { isSignedIn, route, imageUrl, box } = this.state;
+        const {
+            isSignedIn,
+            route,
+            imageUrl,
+            box,
+            user: { name, entries }
+        } = this.state;
 
         return (
             <div className="app">
@@ -131,8 +137,8 @@ class App extends Component {
                     <main>
                         <Logo />
                         <Rank
-                            name={this.state.user.name}
-                            entries={this.state.user.entries}
+                            name={name}
+                            entries={entries}
                             isSignedIn={isSignedIn}
                         />
                         <ImageLinkForm
