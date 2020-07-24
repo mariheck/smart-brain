@@ -7,6 +7,9 @@ import Register from './components/register/register.component';
 import Rank from './components/rank/rank.component';
 import ImageLinkForm from './components/image-link-form/image-link-form.component';
 import FaceRecognition from './components/face-recognition/face-recognition.component';
+import Mentions from './components/mentions/mentions.component';
+import Footer from './components/footer/footer.component';
+
 import './App.css';
 
 const particlesOptions = {
@@ -29,7 +32,6 @@ const initialState = {
     boxes: [],
     user: {
         id: '',
-        name: '',
         pseudo: '',
         entries: 0,
         joined: ''
@@ -43,7 +45,6 @@ class App extends Component {
         this.setState({
             user: {
                 id: data.id,
-                name: data.name,
                 pseudo: data.pseudo,
                 entries: data.entries,
                 joined: data.joined
@@ -123,7 +124,7 @@ class App extends Component {
             route,
             imageUrl,
             boxes,
-            user: { name, entries }
+            user: { pseudo, entries }
         } = this.state;
 
         return (
@@ -133,12 +134,12 @@ class App extends Component {
                     isSignedIn={isSignedIn}
                     onRouteChange={this.onRouteChange}
                 />
+                <Logo onRouteChange={this.onRouteChange} />
 
                 {route === 'home' ? (
                     <main>
-                        <Logo />
                         <Rank
-                            name={name}
+                            name={pseudo}
                             entries={entries}
                             isSignedIn={isSignedIn}
                         />
@@ -148,6 +149,8 @@ class App extends Component {
                         />
                         <FaceRecognition imageUrl={imageUrl} boxes={boxes} />
                     </main>
+                ) : route === 'mentions' ? (
+                    <Mentions />
                 ) : route === 'signin' ? (
                     <SignIn
                         onRouteChange={this.onRouteChange}
@@ -161,6 +164,8 @@ class App extends Component {
                         onSignIn={this.onSignIn}
                     />
                 )}
+
+                <Footer onRouteChange={this.onRouteChange} />
             </div>
         );
     }

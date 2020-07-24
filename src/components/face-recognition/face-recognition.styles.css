@@ -11,6 +11,7 @@
 .image-container img {
     width: 500px;
     height: auto;
+    padding-bottom: 50px;
 }
 
 .bounding-box {

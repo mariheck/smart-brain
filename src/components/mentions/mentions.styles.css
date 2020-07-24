@@ -1,0 +1,18 @@
+.mentions {
+    margin-top: 160px;
+    text-align: left;
+    max-width: 90%;
+}
+
+.mentions h2:not(:first-of-type) {
+    margin-top: 50px;
+}
+
+.mentions h4 {
+    margin-bottom: 10px;
+}
+
+.mentions p {
+    margin-top: 10px;
+    line-height: 1.5;
+}

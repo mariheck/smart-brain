@@ -14,7 +14,7 @@ const Rank = ({ name, entries, isSignedIn }) => {
     } else {
         return (
             <div className="rank">
-                <div className="title">Hi stranger !</div>
+                <div className="title">Hi !</div>
             </div>
         );
     }

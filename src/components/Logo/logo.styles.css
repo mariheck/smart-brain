@@ -1,11 +1,12 @@
 .logo {
     position: absolute;
     top: 30px;
+    cursor: pointer;
 }
 
 .tilt {
-    height: 100px;
-    width: 100px;
+    height: 150px;
+    width: 150px;
     background: linear-gradient(89deg, #ff5edf 0%, #04c8de 100%);
     padding: 25px;
     border-radius: 0.25rem;

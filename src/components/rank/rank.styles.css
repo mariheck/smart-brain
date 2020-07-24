@@ -1,6 +1,6 @@
 .rank {
     color: #fff;
-    margin-top: 150px;
+    margin-top: 100px;
     margin-bottom: 50px;
 }
 
@@ -10,10 +10,4 @@
 
 .rank .title {
     font-size: 3rem;
-}
-
-@media screen and (max-width: 800px) {
-    .rank {
-        margin-top: 200px;
-    }
 }

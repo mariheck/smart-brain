@@ -3,7 +3,6 @@ import '../sign-in/sign-in.styles.css';
 
 class Register extends Component {
     state = {
-        registrationName: '',
         registrationPseudo: '',
         registrationPassword: ''
     };
@@ -18,7 +17,6 @@ class Register extends Component {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
-                name: this.state.registrationName,
                 pseudo: this.state.registrationPseudo,
                 password: this.state.registrationPassword
             })
@@ -37,15 +35,6 @@ class Register extends Component {
         return (
             <div className="sign-in">
                 <h2>Register</h2>
-                <div>
-                    <label htmlFor="name">First Name</label>
-                    <input
-                        type="text"
-                        name="registrationName"
-                        id="name"
-                        onChange={this.onInputChange}
-                    />
-                </div>
                 <div>
                     <label htmlFor="pseudo">Pseudo</label>
                     <input
@@ -68,6 +57,11 @@ class Register extends Component {
                     <button type="submit" onClick={this.onSubmitRegister}>
                         Sign Up
                     </button>
+                    <div className="links">
+                        <p onClick={() => this.props.onRouteChange('home')}>
+                            Enter as visitor
+                        </p>
+                    </div>
                 </div>
             </div>
         );

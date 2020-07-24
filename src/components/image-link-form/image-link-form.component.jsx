@@ -13,6 +13,9 @@ const ImageLinkForm = ({ onInputChange, onPictureSubmit }) => (
                     className="form-input"
                     placeholder="Image URL"
                     onChange={onInputChange}
+                    onKeyDown={event => {
+                        if (event.keyCode === 13) onPictureSubmit();
+                    }}
                 />
                 <button className="form-button" onClick={onPictureSubmit}>
                     Detect
