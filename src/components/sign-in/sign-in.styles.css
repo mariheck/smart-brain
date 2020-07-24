@@ -7,7 +7,7 @@
     box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.2);
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 0.5rem;
-    width: 35%;
+    max-width: 350px;
     color: rgba(0, 0, 0, 0.8);
 }
 
@@ -66,22 +66,4 @@
     margin: 0;
     margin-top: 15px;
     cursor: pointer;
-}
-
-@media screen and (max-width: 1000px) {
-    .sign-in {
-        width: 50%;
-    }
-}
-
-@media screen and (max-width: 800px) {
-    .sign-in {
-        width: 70%;
-    }
-}
-
-@media screen and (max-width: 500px) {
-    .sign-in {
-        width: 100%;
-    }
 }

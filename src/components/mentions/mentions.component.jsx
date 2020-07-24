@@ -22,7 +22,7 @@ const Mentions = () => (
 
         <h2>Personnal data</h2>
         <p>
-            A subsciption form to create a personal account and keep track of
+            A subscription form to create a personal account and keep track of
             the number of pictures submited is available. This form only
             requests a pseudonym and a password, no personal information is
             needed, the main purpose of this form being the demonstration of the

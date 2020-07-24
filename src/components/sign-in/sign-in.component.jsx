@@ -13,7 +13,7 @@ class SignIn extends Component {
     };
 
     onSubmitSignIn = () => {
-        fetch('http://localhost:3000/signin', {
+        fetch('https://mariheck-smartbrain-api.herokuapp.com/signin', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
