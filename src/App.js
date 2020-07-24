@@ -26,7 +26,7 @@ const initialState = {
     isSignedIn: false,
     input: '',
     imageUrl: '',
-    box: {},
+    boxes: [],
     user: {
         id: '',
         name: '',
@@ -63,21 +63,31 @@ class App extends Component {
     };
 
     calculateFaceLocation = data => {
-        const clarifaiFace =
-            data.outputs[0].data.regions[0].region_info.bounding_box;
+        // const clarifaiFace =
+        //     data.outputs[0].data.regions[0].region_info.bounding_box;
+        const clarifaiFaces = data.outputs[0].data.regions;
         const image = document.getElementById('inputImage');
         const width = Number(image.width);
         const height = Number(image.height);
-        return {
-            leftCol: clarifaiFace.left_col * width,
-            topRow: clarifaiFace.top_row * height,
-            rightCol: width - clarifaiFace.right_col * width,
-            bottomRow: height - clarifaiFace.bottom_row * height
-        };
+
+        return clarifaiFaces.map(face => ({
+            leftCol: face.region_info.bounding_box.left_col * width,
+            topRow: face.region_info.bounding_box.top_row * height,
+            rightCol: width - face.region_info.bounding_box.right_col * width,
+            bottomRow:
+                height - face.region_info.bounding_box.bottom_row * height
+        }));
+
+        // return {
+        //     leftCol: clarifaiFace.left_col * width,
+        //     topRow: clarifaiFace.top_row * height,
+        //     rightCol: width - clarifaiFace.right_col * width,
+        //     bottomRow: height - clarifaiFace.bottom_row * height
+        // };
     };
 
-    displayFaceBox = box => {
-        this.setState({ box: box });
+    displayFaceBox = boxes => {
+        this.setState({ boxes: boxes });
     };
 
     onInputChange = event => {
@@ -121,7 +131,7 @@ class App extends Component {
             isSignedIn,
             route,
             imageUrl,
-            box,
+            boxes,
             user: { name, entries }
         } = this.state;
 
@@ -145,7 +155,7 @@ class App extends Component {
                             onInputChange={this.onInputChange}
                             onPictureSubmit={this.onPictureSubmit}
                         />
-                        <FaceRecognition imageUrl={imageUrl} box={box} />
+                        <FaceRecognition imageUrl={imageUrl} boxes={boxes} />
                     </main>
                 ) : route === 'signin' ? (
                     <SignIn
